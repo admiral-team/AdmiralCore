@@ -9,15 +9,16 @@
 import SwiftUI
 
 @available(iOS 14.0.0, *)
-struct SizeAwareViewModifier: ViewModifier {
+// A ViewModifier that observes changes in the size of the view and updates the bound CGSize value accordingly.
+public struct SizeAwareViewModifier: ViewModifier {
 
     @Binding private var viewSize: CGSize
 
-    init(viewSize: Binding<CGSize>) {
+    public init(viewSize: Binding<CGSize>) {
         self._viewSize = viewSize
     }
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         if #available(iOS 15.0, *) {
             return content
                 .background(BackgroundGeometryReader())

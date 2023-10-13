@@ -8,15 +8,16 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-struct RectAwareViewModifier: ViewModifier {
+// A ViewModifier that observes changes in the frame of the view and updates the bound CGRect value accordingly.
+public struct RectAwareViewModifier: ViewModifier {
 
     @Binding private var viewRect: CGRect
 
-    init(viewRect: Binding<CGRect>) {
+    public init(viewRect: Binding<CGRect>) {
         self._viewRect = viewRect
     }
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
 
             return content
                 .background(
